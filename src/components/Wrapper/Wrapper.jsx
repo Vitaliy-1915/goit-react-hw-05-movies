@@ -1,8 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "../Header/Header";
-import HomePage from "../HomePage/HomePage";
-import ErrorSearch from "../views/ErrorSearch";
+import HomePage from "../Views/HomePage/HomePage";
+import ErrorSearch from "../Views/ErrorSearch/ErrorSearch";
+import MoviesPage from "../Views/MoviesPage/MoviesPage";
 import { WrapperContainer } from "./Wrapper.styles";
 
 function Wrapper() {
@@ -15,7 +16,9 @@ function Wrapper() {
           <HomePage />
         </Route>
 
-        <Route path="/movies"></Route>
+        <Route path="/movies">
+          <MoviesPage />
+        </Route>
 
         <Route>
           <ErrorSearch />
