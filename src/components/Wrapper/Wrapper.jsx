@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import HomePage from "../Views/HomePage/HomePage";
 import ErrorSearch from "../Views/ErrorSearch/ErrorSearch";
 import MoviesPage from "../Views/MoviesPage/MoviesPage";
+import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage";
 import { WrapperContainer } from "./Wrapper.styles";
 
 function Wrapper() {
@@ -16,13 +17,17 @@ function Wrapper() {
           <HomePage />
         </Route>
 
-        <Route path="/movies">
-          <MoviesPage />
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
         </Route>
 
-        <Route>
-          <ErrorSearch />
-        </Route>
+        {/* <Route path="/movies" >
+                    <MoviesPage />
+                </Route> */}
+
+        {/* <Route>
+                    <ErrorSearch />
+                </Route> */}
       </Switch>
     </WrapperContainer>
   );

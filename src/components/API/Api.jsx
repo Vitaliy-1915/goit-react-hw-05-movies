@@ -8,8 +8,20 @@ export const fetchTrendingMovies = async () => {
     const tredingFilms = await axios
       .get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`)
       .then(({ data }) => data.results);
-    console.log(tredingFilms);
+    // console.log(tredingFilms);
     return tredingFilms;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchMovieById = async (id) => {
+  try {
+    const movieDetails = await axios
+      .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+      .then(({ data }) => data.results);
+    console.log(movieDetails);
+    return movieDetails;
   } catch (error) {
     console.error(error);
   }
