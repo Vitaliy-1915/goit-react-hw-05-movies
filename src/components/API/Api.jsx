@@ -15,12 +15,27 @@ export const fetchTrendingMovies = async () => {
   }
 };
 
+export const fetchSearcingMovies = async (MovieName) => {
+  // console.log(MovieName);
+  try {
+    const searchingMovies = await axios
+      .get(
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${MovieName}`
+      )
+      .then(({ data }) => data.results);
+    // console.log(searchingMovies);
+    return searchingMovies;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const fetchMovieById = async (id) => {
   try {
     const movieDetails = await axios
       .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
-      .then(({ data }) => data.results);
-    console.log(movieDetails);
+      .then((results) => results.data);
+    // console.log(movieDetails);
     return movieDetails;
   } catch (error) {
     console.error(error);

@@ -1,10 +1,10 @@
-import React from "react";
+// import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import HomePage from "../Views/HomePage/HomePage";
 import ErrorSearch from "../Views/ErrorSearch/ErrorSearch";
 import MoviesPage from "../Views/MoviesPage/MoviesPage";
-import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage";
+import MovieDetailsPage from "../Views/MovieDetailsPage/MovieDetailsPage";
 import { WrapperContainer } from "./Wrapper.styles";
 
 function Wrapper() {
@@ -17,17 +17,17 @@ function Wrapper() {
           <HomePage />
         </Route>
 
-        <Route path="/movies/:movieId">
+        <Route path="/movies" exact>
+          <MoviesPage />
+        </Route>
+
+        <Route path="/movies/:moviesId">
           <MovieDetailsPage />
         </Route>
 
-        {/* <Route path="/movies" >
-                    <MoviesPage />
-                </Route> */}
-
-        {/* <Route>
-                    <ErrorSearch />
-                </Route> */}
+        <Route>
+          <ErrorSearch />
+        </Route>
       </Switch>
     </WrapperContainer>
   );

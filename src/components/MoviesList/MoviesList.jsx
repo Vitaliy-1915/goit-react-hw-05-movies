@@ -1,14 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { fetchTrendingMovies } from "../API/Api";
+// import React from "react";
 
-function MoviesList() {
-  const [movies, setMovies] = useState(null);
+import { Link, useRouteMatch } from "react-router-dom";
 
-  useEffect(() => {
-    fetchTrendingMovies().then(setMovies);
-  }, []);
+function MoviesList({ movies }) {
+  const { url } = useRouteMatch();
 
   return (
     <ul>
@@ -16,7 +11,7 @@ function MoviesList() {
       {movies &&
         movies.map((movie) => (
           <li key={movie.id}>
-            <Link to={`/${movie.id}`}>{movie.title}</Link>{" "}
+            <Link to={`${url}movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
     </ul>
